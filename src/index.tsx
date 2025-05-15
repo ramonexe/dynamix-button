@@ -1,0 +1,1 @@
+export { Botao } from './components/Botao';
