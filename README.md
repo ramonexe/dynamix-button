@@ -5,7 +5,7 @@ Uma biblioteca React para botões personalizáveis, expandíveis e com alta usab
 [![NPM Version](https://img.shields.io/npm/v/dynamix-button.svg)](https://www.npmjs.com/package/dynamix-button)
 [![License](https://img.shields.io/npm/l/dynamix-button.svg)](https://github.com/ramonexe/dynamix-button/blob/main/LICENSE)
 
-![Exemplo de botões](https://via.placeholder.com/800x200?text=Exemplos+de+Botoes)
+![Exemplo de botões](https://raw.githubusercontent.com/ramonexe/dynamix-button/refs/heads/develop/src/assets/demo.gif)
 
 ## Características
 
