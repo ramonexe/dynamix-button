@@ -1,40 +1,41 @@
-# Botão React Avançado
 
-Uma biblioteca React para botões personalizáveis, expandíveis e com alta usabilidade.
+# Advanced React Button
+
+A customizable, expandable, and highly usable button library for React.
 
 [![NPM Version](https://img.shields.io/npm/v/dynamix-button.svg)](https://www.npmjs.com/package/dynamix-button)
 [![License](https://img.shields.io/npm/l/dynamix-button.svg)](https://github.com/ramonexe/dynamix-button/blob/main/LICENSE)
 
-![Exemplo de botões](https://raw.githubusercontent.com/ramonexe/dynamix-button/refs/heads/develop/src/assets/demo.gif)
+![Button example](https://raw.githubusercontent.com/ramonexe/dynamix-button/refs/heads/develop/src/assets/demo.gif)
 
-## Características
+## Features
 
-- ✨ **Expansão ao hover** - Botões com ícone expandem para mostrar texto quando o mouse passa sobre eles
-- 🎨 **Personalização completa** - Tamanhos, variantes, cores e posicionamento de ícones
-- 📱 **Responsivo** - Design adaptável para diferentes dispositivos
-- ♿ **Acessível** - Suporte a ARIA e alto contraste
-- 🔄 **Estado de carregamento** - Spinner integrado com texto opcional
-- 🛠️ **Fácil de usar** - API simples e intuitiva
+- ✨ **Hover Expansion** - Buttons with icons expand to show text on hover
+- 🎨 **Full Customization** - Sizes, variants, colors, and icon positioning
+- 📱 **Responsive** - Adaptive design for various devices
+- ♿ **Accessible** - ARIA support and high contrast
+- 🔄 **Loading State** - Integrated spinner with optional text
+- 🛠️ **Easy to Use** - Simple and intuitive API
 
-## Uso Básico
+## Basic Usage
 
 ```jsx
 import React from 'react';
-import { Botao } from 'dynamix-button';
-import { Heart } from 'lucide-react'; // ou qualquer biblioteca de ícones
+import { Button } from 'dynamix-button';
+import { Heart } from 'lucide-react'; // or any icon library
 
 function App() {
   return (
     <div>
-      {/* Botão básico */}
-      <Botao onClick={() => alert('Clicado!')}>
-        Clique aqui
-      </Botao>
+      {/* Basic button */}
+      <Button onClick={() => alert('Clicked!')}>
+        Click here
+      </Button>
       
-      {/* Botão com ícone - expande ao passar o mouse */}
-      <Botao icon={<Heart />}>
-        Favoritar
-      </Botao>
+      {/* Button with icon - expands on hover */}
+      <Button icon={<Heart />}>
+        Favorite
+      </Button>
     </div>
   );
 }
@@ -42,150 +43,151 @@ function App() {
 
 ## API
 
-### Propriedades do Componente
+### Component Props
 
-| Prop | Tipo | Padrão | Descrição |
-|------|------|--------|-----------|
-| `children` | ReactNode | - | Conteúdo do botão (texto) |
-| `icon` | ReactNode | - | Ícone a ser exibido no botão |
-| `onClick` | () => void | - | Função chamada ao clicar no botão |
-| `size` | 'sm' \| 'md' \| 'lg' | 'md' | Tamanho do botão |
-| `variant` | 'primary' \| 'secondary' \| 'outline' \| 'ghost' \| 'danger' | 'primary' | Estilo do botão |
-| `iconPosition` | 'left' \| 'right' | 'left' | Posicionamento do ícone |
-| `fullWidth` | boolean | false | Se o botão deve ocupar 100% da largura do container |
-| `disabled` | boolean | false | Se o botão está desabilitado |
-| `loading` | boolean | false | Se o botão está em estado de carregamento |
-| `loadingText` | string | - | Texto a ser exibido durante o carregamento |
-| `title` | string | - | Atributo title para tooltip e acessibilidade |
-| `ariaLabel` | string | - | Atributo aria-label para acessibilidade |
-| `backgroundColor` | string | - | Cor de fundo personalizada |
-| `hoverBackgroundColor` | string | - | Cor de fundo ao passar o mouse |
-| `activeBackgroundColor` | string | - | Cor de fundo ao clicar |
-| `textColor` | string | - | Cor do texto |
-| `borderColor` | string | - | Cor da borda |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | ReactNode | - | Button content (text) |
+| `icon` | ReactNode | - | Icon to be displayed on the button |
+| `onClick` | () => void | - | Function called on button click |
+| `size` | 'sm' \| 'md' \| 'lg' | 'md' | Button size |
+| `variant` | 'primary' \| 'secondary' \| 'outline' \| 'ghost' \| 'danger' | 'primary' | Button style |
+| `iconPosition` | 'left' \| 'right' | 'left' | Icon positioning |
+| `alwaysShowText` | boolean | false | Always show text |
+| `fullWidth` | boolean | false | Whether the button should be full width |
+| `disabled` | boolean | false | Whether the button is disabled |
+| `loading` | boolean | false | Whether the button is in loading state |
+| `loadingText` | string | - | Text to display while loading |
+| `title` | string | - | Title attribute for tooltip and accessibility |
+| `ariaLabel` | string | - | ARIA label for accessibility |
+| `backgroundColor` | string | - | Custom background color |
+| `hoverBackgroundColor` | string | - | Background color on hover |
+| `activeBackgroundColor` | string | - | Background color on click |
+| `textColor` | string | - | Text color |
+| `borderColor` | string | - | Border color |
 
-## Exemplos Avançados
+## Advanced Examples
 
-### Diferentes Variantes
-
-```jsx
-<Botao variant="primary">Primário</Botao>
-<Botao variant="secondary">Secundário</Botao>
-<Botao variant="outline">Outline</Botao>
-<Botao variant="ghost">Ghost</Botao>
-<Botao variant="danger">Danger</Botao>
-```
-
-### Diferentes Tamanhos
+### Different Variants
 
 ```jsx
-<Botao size="sm">Pequeno</Botao>
-<Botao size="md">Médio</Botao>
-<Botao size="lg">Grande</Botao>
+<Button variant="primary">Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="danger">Danger</Button>
 ```
 
-### Botão com Ícone (Expansão ao Hover)
+### Different Sizes
+
+```jsx
+<Button size="sm">Small</Button>
+<Button size="md">Medium</Button>
+<Button size="lg">Large</Button>
+```
+
+### Button with Icon (Hover Expansion)
 
 ```jsx
 import { Send } from 'lucide-react';
 
-// Ícone à esquerda (padrão)
-<Botao icon={<Send />}>Enviar</Botao>
+// Icon on the left (default)
+<Button icon={<Send />}>Send</Button>
 
-// Ícone à direita
-<Botao icon={<Send />} iconPosition="right">Enviar</Botao>
+// Icon on the right
+<Button icon={<Send />} iconPosition="right">Send</Button>
 ```
 
-### Estado de Carregamento
+### Loading State
 
 ```jsx
-// Botão de carregamento com texto
-<Botao loading loadingText="Enviando...">Enviar</Botao>
+// Loading button with text
+<Button loading loadingText="Sending...">Send</Button>
 
-// Botão de carregamento sem texto
-<Botao loading>Enviar</Botao>
+// Loading button without text
+<Button loading>Send</Button>
 ```
 
-### Cores Personalizadas
+### Custom Colors
 
 ```jsx
-// Botão com cores totalmente personalizadas
-<Botao 
+// Fully customized color button
+<Button 
   backgroundColor="#3498db"
   hoverBackgroundColor="#2980b9"
   activeBackgroundColor="#1c6ca1"
   textColor="#ffffff"
   borderColor="#2980b9"
 >
-  Botão Azul
-</Botao>
+  Blue Button
+</Button>
 
-// Botão outline com cor personalizada
-<Botao 
+// Outline button with custom color
+<Button 
   variant="outline"
   textColor="#9b59b6"
   borderColor="#9b59b6"
   hoverBackgroundColor="rgba(155, 89, 182, 0.1)"
 >
-  Opção Roxa
-</Botao>
+  Purple Option
+</Button>
 ```
 
-### Botão de Largura Total
+### Full Width Button
 
 ```jsx
-<Botao fullWidth>Botão de Largura Total</Botao>
+<Button fullWidth>Full Width Button</Button>
 ```
 
-### Botão Desabilitado
+### Disabled Button
 
 ```jsx
-<Botao disabled>Botão Desabilitado</Botao>
+<Button disabled>Disabled Button</Button>
 ```
 
-### Acessibilidade
+### Accessibility
 
 ```jsx
-<Botao 
-  ariaLabel="Botão para enviar formulário"
-  title="Clique para enviar o formulário"
+<Button 
+  ariaLabel="Button to submit form"
+  title="Click to submit the form"
 >
-  Enviar
-</Botao>
+  Submit
+</Button>
 ```
 
-## Comportamento de Expansão
+## Expansion Behavior
 
-Um dos principais recursos deste componente é o comportamento de expansão ao passar o mouse. Quando um botão possui um ícone:
+One of the main features of this component is its expansion behavior on hover. When a button has an icon:
 
-1. No estado inicial, apenas o ícone é visível
-2. Ao passar o mouse sobre o botão, ele expande suavemente para mostrar o texto
-3. Ao remover o mouse, ele colapsa novamente para o estado de ícone
+1. Initially, only the icon is visible
+2. On hover, the button smoothly expands to show the text
+3. On mouse out, it collapses back to icon state
 
-Este comportamento é ideal para interfaces onde o espaço é limitado, como barras laterais, barras de ferramentas ou menus compactos.
+This behavior is ideal for interfaces with limited space, such as sidebars, toolbars, or compact menus.
 
 ```jsx
 import { Heart, Send, Settings, User } from 'lucide-react';
 
-// Barra de ferramentas com botões expansíveis
+// Toolbar with expandable buttons
 <div style={{ display: 'flex', gap: '8px' }}>
-  <Botao icon={<Heart />}>Favoritar</Botao>
-  <Botao icon={<Send />}>Enviar</Botao>
-  <Botao icon={<Settings />}>Configurações</Botao>
-  <Botao icon={<User />}>Perfil</Botao>
+  <Button icon={<Heart />}>Favorite</Button>
+  <Button icon={<Send />}>Send</Button>
+  <Button icon={<Settings />}>Settings</Button>
+  <Button icon={<User />}>Profile</Button>
 </div>
 ```
 
-## Uso com Bibliotecas de Ícones
+## Usage with Icon Libraries
 
-O componente foi projetado para trabalhar bem com bibliotecas de ícones populares:
+The component is designed to work well with popular icon libraries:
 
 ### Lucide React
 
 ```jsx
 import { Download } from 'lucide-react';
 
-<Botao icon={<Download />}>Download</Botao>
+<Button icon={<Download />}>Download</Button>
 ```
 
 ### React Icons
@@ -193,7 +195,7 @@ import { Download } from 'lucide-react';
 ```jsx
 import { FiDownload } from 'react-icons/fi';
 
-<Botao icon={<FiDownload />}>Download</Botao>
+<Button icon={<FiDownload />}>Download</Button>
 ```
 
 ### Material UI Icons
@@ -201,17 +203,17 @@ import { FiDownload } from 'react-icons/fi';
 ```jsx
 import DownloadIcon from '@mui/icons-material/Download';
 
-<Botao icon={<DownloadIcon />}>Download</Botao>
+<Button icon={<DownloadIcon />}>Download</Button>
 ```
 
-## Personalização de Estilo
+## Style Customization
 
-O componente redimensiona automaticamente os ícones conforme o tamanho do botão, garantindo uma aparência coesa e proporcional.
+The component automatically resizes icons according to the button size, ensuring a consistent and proportional appearance.
 
-## Contribuindo
+## Contributing
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
+Contributions are welcome! Feel free to open issues or submit pull requests.
 
-## Licença
+## License
 
 MIT © [ramonexe]

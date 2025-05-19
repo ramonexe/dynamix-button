@@ -1,15 +1,15 @@
 import React from "react";
 
-type BotaoSize = "sm" | "md" | "lg";
-type BotaoVariant = "primary" | "secondary" | "outline" | "ghost" | "danger";
+type ButtonSize = "sm" | "md" | "lg";
+type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "danger";
 type IconPosition = "left" | "right";
 
-interface BotaoProps {
+interface ButtonProps {
     onClick?: () => void;
     children: React.ReactNode;
     icon?: React.ReactNode;
-    size?: BotaoSize;
-    variant?: BotaoVariant;
+    size?: ButtonSize;
+    variant?: ButtonVariant;
     iconPosition?: IconPosition;
     fullWidth?: boolean;
     disabled?: boolean;
@@ -23,6 +23,7 @@ interface BotaoProps {
     activeBackgroundColor?: string;
     textColor?: string;
     borderColor?: string;
+    alwaysShowText?: boolean;
 }
 
 const sizeMap = {
@@ -48,11 +49,11 @@ const sizeMap = {
 
 const variantMap = {
     primary: {
-        backgroundColor: "#FF0000",
+        backgroundColor: "crimson",
         color: "white",
         border: "none",
-        hoverBg: "#D10000",
-        activeBg: "#A00000",
+        hoverBg: "#d10034",
+        activeBg: "#a00030",
     },
     secondary: {
         backgroundColor: "#666666",
@@ -63,14 +64,14 @@ const variantMap = {
     },
     outline: {
         backgroundColor: "transparent",
-        color: "#FF0000",
-        border: "1px solid #FF0000",
+        color: "crimson",
+        border: "1px solid crimson",
         hoverBg: "rgba(255, 0, 0, 0.1)",
         activeBg: "rgba(255, 0, 0, 0.2)",
     },
     ghost: {
         backgroundColor: "transparent",
-        color: "#FF0000",
+        color: "crimson",
         border: "none",
         hoverBg: "rgba(255, 0, 0, 0.1)",
         activeBg: "rgba(255, 0, 0, 0.2)",
@@ -113,7 +114,7 @@ const LoadingSpinner: React.FC<{ size: number; color?: string }> = ({
     );
 };
 
-export const Botao: React.FC<BotaoProps> = ({
+export const Button: React.FC<ButtonProps> = ({
     onClick,
     children,
     icon,
@@ -132,6 +133,7 @@ export const Botao: React.FC<BotaoProps> = ({
     activeBackgroundColor,
     textColor,
     borderColor,
+    alwaysShowText = false,
 }) => {
     const [hovered, setHovered] = React.useState(false);
     const [active, setActive] = React.useState(false);
@@ -222,11 +224,19 @@ export const Botao: React.FC<BotaoProps> = ({
 
     const textStyle: React.CSSProperties = {
         whiteSpace: "nowrap",
-        opacity: temIcone ? (hovered ? 1 : 0) : 1,
-        maxWidth: temIcone ? (hovered ? 200 : 0) : "100%",
+        opacity: alwaysShowText
+            ? 1
+            : temIcone
+                ? (hovered ? 1 : 0)
+                : 1,
+        maxWidth: alwaysShowText
+            ? "100%"
+            : temIcone
+                ? (hovered ? 200 : 0)
+                : "100%",
         overflow: "hidden",
-        marginLeft: temIcone && iconPosition === "left" ? (hovered ? 8 : 0) : 0,
-        marginRight: temIcone && iconPosition === "right" ? (hovered ? 8 : 0) : 0,
+        marginLeft: temIcone && iconPosition === "left" ? (hovered || alwaysShowText ? 8 : 0) : 0,
+        marginRight: temIcone && iconPosition === "right" ? (hovered || alwaysShowText ? 8 : 0) : 0,
         transition: "all 0.2s ease",
     };
 

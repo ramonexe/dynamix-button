@@ -1,1 +1,1 @@
-export { Botao } from './components/Botao';
+export { Button as Button } from './components/Button';
